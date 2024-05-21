@@ -1,0 +1,21 @@
+<h1 class="text-center my-3">Atualizar Produto: {{produto.nome}}</h1>
+<form action="/produtos/Update" method="post""> 
+  <input type="hidden" name="id_produto" value="{{produto.id_produto}}">
+  <div class="row w-50 d-block m-auto g-3">
+    <div class="col-12">
+      <label class="form-label" for="nome">Nome:</label>
+      <input class="form-control" type="text" name="nome" id="nome" value="{{produto.nome}}">
+    </div>
+    <div class="col-12">
+      <label class="form-label" for="descricao">Descrição:</label>
+      <input class="form-control" type="text" name="descricao" id="descricao" value="{{produto.descricao}}">
+    </div>
+    <div class="col-12">
+      <label class="form-label" for="preco">Preço:</label>
+      <input class="form-control" type="text" name="preco" id="preco" value="{{produto.preco}}">
+    </div>
+    <div>
+      <input class="btn btn-primary my-3" type="submit" value="Atualizar produto">
+    </div>
+  </div>
+</form>

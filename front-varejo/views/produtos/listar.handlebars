@@ -1,0 +1,38 @@
+<h1 class="text-center my-3">Lista de Produtos</h1> 
+<table class="table"> 
+  <div class="row"> 
+    <div class="col-12"> 
+      <thead> 
+      </thead> 
+      <tbody>
+        {{#each produto}}
+          <tr>
+            <th>
+              <center>
+                <img src="{{this.link}}" alt="mostrar imagem" width=150 height=150><br> 
+                <strong>{{this.nome}}</strong><br> 
+                {{this.descricao}} <br> 
+                R${{this.preco}} <br> 
+                Cod. Produto: {{this.id_produto}}<br>
+                
+                <button style="border: 1px solid #000; border-radius: 2px; background-color: #0000ff; margin-top: 8px; padding: 5px;">
+                  <a style="text-decoration: none; color: #fff;" href="/produtos/Atualizar/{{this.id_produto}}/{{this.nome}}/{{this.descricao}}/{{this.preco}}">Editar</a>
+                </button> 
+                
+                <form class="borde-0 m-0" action="/produtos/Delete" method="POST">
+                  <input type="hidden" name="id_produto" value={{this.id_produto}}>
+                  <input style="background-color: #ff0000; color: #fff; border: 1px solid #000; border-radius: 2px; padding: 5px;" type="submit" value="Excluir" name="Excluir">
+                </form>
+                
+                <a href="/carrinho/Adicionar/{{this.id_produto}}/{{this.nome}}"><img src="https://png.pngtree.com/png-vector/20220623/ourmid/pngtree-add-to-cart-ecommerce-online-png-image_5179338.png" width=40 title="Clique para adicionar ao carrinho"></a> 
+                <form class="borde-0 m-0" action="/carrinho/Adicionar" method="POST"> 
+                  <input type="hidden" name="id_produto" value={{this.id_produto}}> 
+                </form>
+            </center>
+            </th>
+          </tr>
+        {{/each}}
+      </tbody> 
+    </div> 
+  </div> 
+</table> 

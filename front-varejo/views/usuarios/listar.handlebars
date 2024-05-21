@@ -1,0 +1,37 @@
+<h1 class="text-center my-3">Lista de Usuários</h1> 
+<table class="table"> 
+  <div class="row"> 
+    <div class="col-12"> 
+      <thead> 
+        <tr>
+          <th>Cod. Usuário</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Senha</th>
+          <th>Ações</th>
+        </tr>
+      </thead> 
+      <tbody>
+        {{#each usuario}}
+          <tr>
+            <th>{{this.id_usuario}}</th>
+            <th>{{this.nome}}</th>
+            <th>{{this.email}}</th>
+            <th>{{this.senha}}</th>
+            <th>
+              <button style="border: 1px solid #000; border-radius: 2px; background-color: #0000ff; padding: 5px;">
+              <a style="text-decoration: none; color: #fff;" href="/usuarios/Atualizar/{{this.id_usuario}}/{{this.nome}}/{{this.email}}/{{this.senha}}">Editar</a>
+            </button>
+            </th>
+            <th>
+              <form class="borde-0 m-0" action="/usuarios/Delete" method="POST">
+                <input type="hidden" name="id_usuario" value={{this.id_usuario}}>
+                <input style="background-color: #ff0000; color: #fff; border: 1px solid #000; border-radius: 2px; padding: 5px;" type="submit" value="Excluir" name="Excluir">
+              </form>
+            </th>
+          </tr>
+        {{/each}}
+      </tbody> 
+    </div> 
+  </div> 
+</table> 

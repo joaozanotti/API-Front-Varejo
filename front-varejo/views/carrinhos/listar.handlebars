@@ -1,0 +1,26 @@
+<h1 class="text-center my-3">Lista de Produtos do Carrinho</h1> 
+<table class="table"> 
+   <div class="row"> 
+      <div class="col-12"> 
+         <thead> 
+         </thead> 
+         <tbody> 
+            {{#each carrinho}}
+            <tr> 
+               <th>
+                  <center>
+                     <br> 
+                     <strong>Cód. Produto: {{this.id}}</strong> - {{this.nome}}
+                     <a href="/carrinho/remover/{{this.id}}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHV6FbGF2J9xgYsCidjHGYLgB2yvtUxnUOCIBdlkXpyA&s" width=35 title="Clique aqui para remover do carrinho"></a>
+                  
+                     <form class="borde-0 m-0" action="/carrinho/Adicionar" method="POST"> 
+                        <input type="hidden" name="id" value={{this.id}}> 
+                     </form> 
+                  </center>
+               </th> 
+            </tr>
+            {{/each}}
+          </tbody> 
+       </div> 
+    </div> 
+</table>
